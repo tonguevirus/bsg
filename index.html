@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Basic Sentence Generator</title>
+    </head>
+    <body style="background: black;">
+        <a href="story.html">Basic Story Generator</a>
+        <button onclick="generate()">Generate</button>
+        <p id="sentence" style="color: white; overflow-wrap: break-word;"></p>
+        <script>
+            var sentence = document.getElementById("sentence");
+            var subjects = ["He ", "John Cena ", "John Xina ", "John Xena ", "John F. Kennedy ", "John Smedley ", "EatDatCupcake445 ", "EDP445 ", "Travis Silva ", "Allah "];
+            var verbs = ["ate ", "watched ", "licked ", "loved ", "has ", "had ", "tasted ", "tried ", "smelled ", "sniffed ", "fucked ", "had sex with ", "farted on ", "shot ", "blew up ", "sharted on ", "prayed to ", "praised ", "hung ", "burned ", "killed "];
+            var nouns = ["ice cream.", "Fast and Furious 9.", "Lao Gan Ma.", "beef and broccoli.", "beef and broccoli with Lao Gan Ma.", "a dog.", "a cat.", "Donald Trump.", "Joe Biden.", "Barack Obama.", "Vladimir Putin.", "Xi Jinping.", "Kim Jong Un.", "Travis Silva.", "a cupcake.", "a 13 year old.", "a toilet.", "Elmo.", "Nickers.", "Allah."];
+            function generate(){
+                sentence.innerHTML = subjects[Math.floor(Math.random() * subjects.length)] + verbs[Math.floor(Math.random() * verbs.length)] + nouns[Math.floor(Math.random() * nouns.length)];
+                const speak = (msg) => {
+                    const sp = new SpeechSynthesisUtterance(msg);
+                    [sp.voice] = speechSynthesis.getVoices();
+                    speechSynthesis.speak(sp);
+                    }
+                    speak(sentence.innerHTML);
+            }
+        </script>
+    </body>
+</html>
